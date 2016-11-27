@@ -1,6 +1,6 @@
 package com.cagatayhan.model;
 
-/**
+/*
  * Created by Çağatay Han on 21.10.2016.
  */
 public class Manager extends Employee {

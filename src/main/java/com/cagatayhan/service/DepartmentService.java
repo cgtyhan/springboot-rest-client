@@ -2,7 +2,7 @@ package com.cagatayhan.service;
 
 import com.cagatayhan.model.Department;
 
-/**
+/*
  * Created by Çağatay Han on 18.10.2016.
  */
 public interface DepartmentService {

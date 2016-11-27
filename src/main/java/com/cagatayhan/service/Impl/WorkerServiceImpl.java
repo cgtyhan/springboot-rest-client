@@ -6,38 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-/**
+/*
  * Created by Çağatay Han on 21.10.2016.
  */
 @Service
 public class WorkerServiceImpl implements WorkerService {
+    private final String url = "http://localhost:8000/workers";
+
     @Autowired
     RestTemplate restTemplate;
 
     @Override
     public Worker[] getAllWorkers() {
-        final String url = "http://localhost:8000/workers/all";
-        Worker[] workers = restTemplate.getForObject(url, Worker[].class);
-        return workers;
+        return restTemplate.getForObject(url + "/all", Worker[].class);
     }
 
     @Override
     public Worker getWorkerById(int id) {
-        final String url = "http://localhost:8000/workers/" + id;
-        Worker worker = restTemplate.getForObject(url, Worker.class);
-        return worker;
+        return restTemplate.getForObject(url + "/" + id, Worker.class);
     }
 
     @Override
     public Worker addWorker(Worker worker) {
-        final String url = "http://localhost:8000/workers/add";
-        restTemplate.postForObject(url, worker, Worker.class);
+        restTemplate.postForObject(url + "/add", worker, Worker.class);
         return worker;
     }
 
     @Override
     public void deleteWorker(int id) {
-        final String url = "http://localhost:8000/workers/delete/" + id;
-        restTemplate.delete(url, Worker.class);
+        restTemplate.delete(url + "/delete/" + id, Worker.class);
     }
 }

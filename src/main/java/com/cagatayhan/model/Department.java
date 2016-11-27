@@ -2,7 +2,7 @@ package com.cagatayhan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
+/*
  * Created by Çağatay Han on 16.10.2016.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
